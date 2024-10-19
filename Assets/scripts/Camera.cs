@@ -7,7 +7,6 @@ public class IsoCameraFollow : MonoBehaviour
     public float smoothSpeed = 0.125f;
     public float jumpDistanceFactor = 1.5f; 
     public float smoothTime = 0.3f;
-
     private Vector3 currentVelocity;
     private Vector3 originalOffset;
     private Rigidbody targetRb;
@@ -29,10 +28,8 @@ public class IsoCameraFollow : MonoBehaviour
             adjustedOffset *= jumpDistanceFactor;
         }
  
-        Vector3 desiredPosition = target.position + adjustedOffset;
-        
-        transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref currentVelocity, smoothTime);
-        
+        Vector3 desiredPosition = target.position + adjustedOffset;        
+        transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref currentVelocity, smoothTime);        
         transform.LookAt(target);
     }
 }
